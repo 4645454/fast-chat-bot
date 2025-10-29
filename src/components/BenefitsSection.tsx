@@ -1,34 +1,37 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Zap, DollarSign, TrendingUp } from "lucide-react";
-
-const benefits = [
-  {
-    icon: Zap,
-    title: "سرعة الرد = رضا العميل",
-    description: "رد تلقائي في أقل من 30 ثانية على كل الاستفسارات، عميلك مش هيستنى ولا ثانية زيادة"
-  },
-  {
-    icon: DollarSign,
-    title: "توفير 3 موظفين خدمة عملاء",
-    description: "وفر آلاف الجنيهات شهرياً، Fast Chat بيشتغل 24/7 من غير إجازات ولا تأخير"
-  },
-  {
-    icon: TrendingUp,
-    title: "زيادة المبيعات 24/7",
-    description: "مفيش عميل هيفوتك تاني، البوت بيرد حتى لو إنت نايم والمبيعات بتزيد على طول"
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const BenefitsSection = () => {
+  const { t, language } = useLanguage();
+  
+  const benefits = [
+    {
+      icon: Zap,
+      title: t('benefits.speed.title'),
+      description: t('benefits.speed.desc')
+    },
+    {
+      icon: DollarSign,
+      title: t('benefits.saving.title'),
+      description: t('benefits.saving.desc')
+    },
+    {
+      icon: TrendingUp,
+      title: t('benefits.sales.title'),
+      description: t('benefits.sales.desc')
+    }
+  ];
+
   return (
-    <section className="py-20 bg-background">
+    <section id="benefits" className="py-20 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/10" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            ليه تختار Fast Chat؟
+          <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4">
+            {t('benefits.title')}
           </h2>
           <p className="text-xl text-muted-foreground">
-            الحل الذكي اللي هيغير طريقة تعاملك مع عملائك
+            {t('benefits.subtitle')}
           </p>
         </div>
 
@@ -38,12 +41,12 @@ const BenefitsSection = () => {
             return (
               <Card
                 key={index}
-                className="border-none shadow-soft hover:shadow-medium transition-all duration-300 bg-gradient-to-br from-card to-secondary/30 animate-fade-in"
+                className="border-2 border-primary/10 shadow-soft hover:shadow-strong hover:border-primary/30 transition-all duration-300 bg-gradient-to-br from-card via-primary/5 to-accent/5 animate-fade-in group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardContent className="p-8 text-center space-y-4">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary mb-4">
-                    <Icon className="h-8 w-8" />
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="h-10 w-10" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">
                     {benefit.title}
