@@ -42,10 +42,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2 space-x-reverse">
-            <div className="relative">
-              <Sparkles className="h-8 w-8 text-primary animate-pulse glow-white" />
-              <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full"></div>
-            </div>
+            <Sparkles className="h-8 w-8 text-primary animate-pulse glow-white" />
             <span className="text-2xl font-bold text-primary glow-white">
               Fast Chat
             </span>

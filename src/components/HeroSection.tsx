@@ -23,9 +23,9 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-8 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-primary">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-primary glow-white">
               {t('hero.title')}
-              <span className="block mt-2 glow-white">
+              <span className="block mt-2">
                 {t('hero.titleHighlight')}
               </span>
             </h1>

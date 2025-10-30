@@ -27,7 +27,7 @@ const BenefitsSection = () => {
     <section id="benefits" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 glow-white">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-white mb-4">
             {t('benefits.title')}
           </h2>
           <p className="text-xl text-muted-foreground">
