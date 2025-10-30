@@ -1,67 +1,62 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PlatformsSection = () => {
   const { t, language } = useLanguage();
   
   const platforms = [
-    {
-      name: language === 'ar' ? "واتساب" : "WhatsApp",
-      icon: "💬",
-      color: "from-green-500/20 via-green-400/20 to-green-600/20"
+    { 
+      name: "WhatsApp", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+      color: "hover:shadow-[0_0_40px_rgba(37,211,102,0.5)]"
     },
-    {
-      name: language === 'ar' ? "إنستجرام" : "Instagram",
-      icon: "📷",
-      color: "from-pink-500/20 via-purple-400/20 to-purple-600/20"
+    { 
+      name: "Instagram", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png",
+      color: "hover:shadow-[0_0_40px_rgba(225,48,108,0.5)]"
     },
-    {
-      name: language === 'ar' ? "فيسبوك" : "Facebook",
-      icon: "👍",
-      color: "from-blue-500/20 via-blue-400/20 to-blue-600/20"
+    { 
+      name: "Facebook", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg",
+      color: "hover:shadow-[0_0_40px_rgba(24,119,242,0.5)]"
     }
   ];
 
   return (
-    <section id="platforms" className="py-20 bg-gradient-to-br from-secondary/10 via-primary/5 to-accent/10" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <section id="platforms" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 glow-white">
             {t('platforms.title')}
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground">
             {t('platforms.subtitle')}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {platforms.map((platform, index) => (
-            <Card
-              key={index}
-              className={`border-2 border-primary/10 hover:border-primary/30 shadow-soft hover:shadow-strong transition-all duration-300 bg-gradient-to-br ${platform.color} backdrop-blur-sm animate-scale-in group`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <CardContent className="p-8 text-center space-y-4">
-                <div className="text-6xl mb-4 animate-bounce-in group-hover:scale-125 transition-transform duration-300" style={{ animationDelay: `${index * 200}ms` }}>
-                  {platform.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  {platform.name}
-                </h3>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-accent/10 px-8 py-4 rounded-2xl shadow-soft border-2 border-primary/20">
-            <MessageCircle className="h-6 w-6 text-primary animate-pulse" />
-            <p className="text-xl font-medium text-foreground">
-              {t('platforms.subtitle')}
-            </p>
-          </div>
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {platforms.map((platform, index) => {
+            return (
+              <Card
+                key={index}
+                className={`border border-primary/20 shadow-soft hover:shadow-strong hover:border-primary transition-all duration-300 bg-gradient-card hover:scale-105 animate-fade-in group ${platform.color}`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <CardContent className="p-8 text-center">
+                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-card border border-primary/20 mb-4 group-hover:scale-110 transition-all duration-300 overflow-hidden">
+                    <img 
+                      src={platform.logo} 
+                      alt={platform.name}
+                      className="h-16 w-16 object-contain"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    {platform.name}
+                  </h3>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

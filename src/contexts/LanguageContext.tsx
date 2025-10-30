@@ -72,7 +72,7 @@ const translations = {
     'nav.services': 'Services',
     'nav.whyUs': 'Why Us',
     'nav.platforms': 'Platforms',
-    'nav.callNow': 'Call Now',
+    'nav.callNow': 'Contact Us',
     
     // Hero
     'hero.title': 'Let your customers get replies from chat',

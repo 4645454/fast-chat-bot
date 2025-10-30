@@ -1,59 +1,68 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-chat.jpg";
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
   
-  const scrollToForm = () => {
-    const formSection = document.getElementById('contact-form');
-    formSection?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToContact = () => {
+    const element = document.getElementById('contact-form');
+    element?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
   };
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+      {/* Background gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-section -z-10"></div>
+      
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className={`text-center ${language === 'ar' ? 'md:text-right' : 'md:text-left'} space-y-6 animate-fade-in`}>
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
-              {t('hero.title')}{" "}
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-pulse">
+          <div className="space-y-8 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-primary">
+              {t('hero.title')}
+              <span className="block mt-2 glow-white">
                 {t('hero.titleHighlight')}
               </span>
             </h1>
+            
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
               {t('hero.subtitle')}
             </p>
-            <div className={`flex gap-4 justify-center ${language === 'ar' ? 'md:justify-end' : 'md:justify-start'} pt-4`}>
-              <Button
+            
+            <div className="animate-bounce-in" style={{ animationDelay: '200ms' }}>
+              <Button 
                 size="lg"
-                onClick={scrollToForm}
-                className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-strong hover:shadow-glow transition-all duration-300 text-lg px-8 py-6"
+                onClick={scrollToContact}
+                className="text-xl px-10 py-7 rounded-2xl bg-primary text-background hover:shadow-strong transition-all duration-300 hover:scale-105 group hover:glow-white-strong"
               >
-                <MessageCircle className={`${language === 'ar' ? 'ml-2' : 'mr-2'} h-5 w-5`} />
-                {t('hero.cta')}
+                <span className="relative z-10">{t('hero.cta')}</span>
+                <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500" />
               </Button>
             </div>
           </div>
 
-          {/* Hero Image */}
-          <div className="relative animate-float">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 rounded-3xl blur-3xl"></div>
-            <img
-              src={heroImage}
-              alt={t('hero.imageAlt')}
-              className="relative rounded-3xl shadow-strong w-full h-auto border-4 border-primary/20"
-            />
+          {/* Image */}
+          <div className="relative animate-scale-in" style={{ animationDelay: '300ms' }}>
+            <div className="relative rounded-3xl overflow-hidden shadow-strong hover:glow-white transition-all duration-500 border-2 border-primary/30 hover:border-primary animate-float">
+              <img 
+                src={heroImage} 
+                alt={t('hero.imageAlt')}
+                className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
     </section>
   );
 };

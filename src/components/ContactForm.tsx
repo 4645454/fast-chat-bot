@@ -56,88 +56,81 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
   };
 
   return (
-    <section id="contact-form" className="py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20" dir={language === 'ar' ? 'rtl' : 'ltr'}>
-      <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto">
-          <Card className="border-2 border-primary/20 shadow-strong hover:shadow-glow bg-card backdrop-blur-sm transition-all duration-300">
-            <CardHeader className="text-center space-y-4 pb-8">
-              <CardTitle className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                {t('contact.title')}
-              </CardTitle>
-              <p className="text-xl text-muted-foreground">
-                {t('contact.subtitle')}
-              </p>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-lg font-medium">
-                    {t('contact.name')} *
-                  </Label>
-                  <Input
-                    id="name"
-                    placeholder={t('contact.namePlaceholder')}
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="h-12 text-lg border-primary/20 focus:border-primary"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="brandName" className="text-lg font-medium">
-                    {t('contact.brandName')} *
-                  </Label>
-                  <Input
-                    id="brandName"
-                    placeholder={t('contact.brandPlaceholder')}
-                    value={formData.brandName}
-                    onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
-                    className="h-12 text-lg border-primary/20 focus:border-primary"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="whatsapp" className="text-lg font-medium">
-                    {t('contact.whatsapp')} *
-                  </Label>
-                  <Input
-                    id="whatsapp"
-                    type="tel"
-                    placeholder={t('contact.whatsappPlaceholder')}
-                    value={formData.whatsapp}
-                    onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                    className="h-12 text-lg border-primary/20 focus:border-primary"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="reason" className="text-lg font-medium">
-                    {t('contact.reason')}
-                  </Label>
-                  <Textarea
-                    id="reason"
-                    placeholder={t('contact.reasonPlaceholder')}
-                    value={formData.reason}
-                    onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
-                    className="min-h-[120px] text-lg resize-none border-primary/20 focus:border-primary"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-strong hover:shadow-glow transition-all duration-300 text-xl py-6"
-                >
-                  <Send className={`${language === 'ar' ? 'ml-2' : 'mr-2'} h-5 w-5`} />
-                  {t('contact.submit')}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+    <section id="contact-form" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="container mx-auto px-4 max-w-2xl">
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 glow-white">
+            {t('contact.title')}
+          </h2>
+          <p className="text-xl text-muted-foreground">
+            {t('contact.subtitle')}
+          </p>
         </div>
+
+        <Card className="border border-primary/20 shadow-strong bg-gradient-card hover:glow-white transition-all duration-300 animate-fade-in">
+          <CardContent className="p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-foreground text-lg">{t('contact.name')}</Label>
+                <Input
+                  id="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder={t('contact.namePlaceholder')}
+                  className="border border-primary/20 focus:border-primary transition-all duration-300 text-lg py-6 bg-card"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="brandName" className="text-foreground text-lg">{t('contact.brandName')}</Label>
+                <Input
+                  id="brandName"
+                  type="text"
+                  value={formData.brandName}
+                  onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
+                  placeholder={t('contact.brandPlaceholder')}
+                  className="border border-primary/20 focus:border-primary transition-all duration-300 text-lg py-6 bg-card"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="whatsapp" className="text-foreground text-lg">{t('contact.whatsapp')}</Label>
+                <Input
+                  id="whatsapp"
+                  type="tel"
+                  value={formData.whatsapp}
+                  onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                  placeholder={t('contact.whatsappPlaceholder')}
+                  className="border border-primary/20 focus:border-primary transition-all duration-300 text-lg py-6 bg-card"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="reason" className="text-foreground text-lg">{t('contact.reason')}</Label>
+                <Textarea
+                  id="reason"
+                  value={formData.reason}
+                  onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
+                  placeholder={t('contact.reasonPlaceholder')}
+                  className="border border-primary/20 focus:border-primary transition-all duration-300 min-h-32 text-lg bg-card"
+                  required
+                />
+              </div>
+
+              <Button 
+                type="submit"
+                className="w-full text-xl py-6 rounded-xl bg-primary text-background hover:shadow-strong transition-all duration-300 hover:scale-105 group hover:glow-white-strong"
+              >
+                <span className="relative z-10">{t('contact.submit')}</span>
+                <Send className="mr-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

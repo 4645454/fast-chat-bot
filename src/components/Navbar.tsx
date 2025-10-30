@@ -34,7 +34,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
           ? 'bg-background/95 backdrop-blur-lg shadow-medium' 
-          : 'bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/20'
+          : 'bg-background/80 backdrop-blur-sm'
       }`}
       dir={language === 'ar' ? 'rtl' : 'ltr'}
     >
@@ -43,25 +43,24 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2 space-x-reverse">
             <div className="relative">
-              <Sparkles className="h-8 w-8 text-primary animate-pulse" />
-              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
+              <Sparkles className="h-8 w-8 text-primary animate-pulse glow-white" />
+              <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full"></div>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            <span className="text-2xl font-bold text-primary glow-white">
               Fast Chat
             </span>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-2">
-            <div className="flex items-center gap-1 bg-card/50 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-soft border border-primary/10">
+          <div className="hidden md:flex items-center gap-6">
+            <div className="flex items-center gap-1">
               {menuItems.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => scrollToSection(item.id)}
-                  className="group relative px-6 py-3 text-foreground/80 font-medium transition-all duration-300 hover:text-primary hover:scale-110"
+                  className="group relative px-6 py-3 text-primary font-medium transition-all duration-300 hover:scale-110 hover:glow-white"
                 >
                   <span className="relative z-10">{item.label}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
               ))}
             </div>
@@ -83,12 +82,12 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
-            <div className="flex flex-col gap-2 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-strong">
+            <div className="flex flex-col gap-2 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-strong border border-primary/10">
               {menuItems.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-right px-4 py-3 text-foreground/80 font-medium hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-300"
+                  className="text-right px-4 py-3 text-primary font-medium hover:glow-white rounded-xl transition-all duration-300"
                 >
                   {item.label}
                 </button>

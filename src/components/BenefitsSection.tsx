@@ -24,10 +24,10 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/10" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <section id="benefits" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 glow-white">
             {t('benefits.title')}
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -41,11 +41,11 @@ const BenefitsSection = () => {
             return (
               <Card
                 key={index}
-                className="border-2 border-primary/10 shadow-soft hover:shadow-strong hover:border-primary/30 transition-all duration-300 bg-gradient-to-br from-card via-primary/5 to-accent/5 animate-fade-in group"
+                className="border border-primary/20 shadow-soft hover:shadow-strong hover:border-primary hover:glow-white transition-all duration-300 bg-gradient-card animate-fade-in group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardContent className="p-8 text-center space-y-4">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-card border border-primary/30 text-primary mb-4 group-hover:scale-110 group-hover:glow-white transition-all duration-300">
                     <Icon className="h-10 w-10" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">
