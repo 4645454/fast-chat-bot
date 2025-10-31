@@ -23,10 +23,10 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { label: t('nav.services'), id: 'benefits' },
-    { label: t('nav.whyUs'), id: 'proof' },
-    { label: t('nav.platforms'), id: 'platforms' },
-    { label: t('nav.callNow'), id: 'contact-form' },
+    { label: language === 'ar' ? 'الخدمات' : 'Services', id: 'benefits' },
+    { label: language === 'ar' ? 'لماذا نحن' : 'Why Us', id: 'benefits' },
+    { label: language === 'ar' ? 'المنصات' : 'Platforms', id: 'platforms' },
+    { label: language === 'ar' ? 'اتصل الآن' : 'Call Now', id: 'contact-form' },
   ];
 
   return (

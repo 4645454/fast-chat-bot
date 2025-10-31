@@ -1,11 +1,22 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Check } from "lucide-react";
+import { Check, Send } from "lucide-react";
+import { toast } from "sonner";
 
 const PricingSection = () => {
-  const { t, language } = useLanguage();
-  const [selectedPlan, setSelectedPlan] = useState<string>("1 Day");
+  const { language } = useLanguage();
+  const [selectedDuration, setSelectedDuration] = useState<string>("1 Day");
+  const [selectedPackage, setSelectedPackage] = useState<string>("");
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    whatsapp: ""
+  });
 
   const plans = {
     "1 Day": [
@@ -36,11 +47,47 @@ const PricingSection = () => {
 
   const planKeys = Object.keys(plans) as Array<keyof typeof plans>;
 
+  const handlePackageSelect = (packageName: string) => {
+    setSelectedPackage(packageName);
+    setShowForm(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.whatsapp) {
+      toast.error(language === 'ar' ? 'يرجى ملء جميع الحقول المطلوبة' : 'Please fill all required fields');
+      return;
+    }
+
+    const message = `${language === 'ar' ? 'مرحباً' : 'Hello'}! 👋
+
+${language === 'ar' ? 'الاسم' : 'Name'}: ${formData.name}
+${language === 'ar' ? 'البريد الإلكتروني' : 'Email'}: ${formData.email}
+${language === 'ar' ? 'واتساب' : 'WhatsApp'}: ${formData.whatsapp}
+
+${language === 'ar' ? 'الباقة المختارة' : 'Selected Plan'}: ${selectedPackage} - ${selectedDuration}
+
+${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلقائي على العملاء.' : 'I am interested in Fast Chat service for automatic customer replies.'}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappNumber = "201000000000";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+    
+    toast.success(language === 'ar' ? 'جارٍ فتح واتساب...' : 'Opening WhatsApp...');
+    
+    setFormData({ name: "", email: "", whatsapp: "" });
+    setShowForm(false);
+    setSelectedPackage("");
+  };
+
   return (
     <section id="pricing" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-cyan-soft mb-4">
             {language === 'ar' ? 'الباقات والأسعار' : 'Plans & Pricing'}
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -53,11 +100,15 @@ const PricingSection = () => {
           {planKeys.map((planKey) => (
             <button
               key={planKey}
-              onClick={() => setSelectedPlan(planKey)}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                selectedPlan === planKey
-                  ? 'bg-primary text-background scale-110 glow-white-strong'
-                  : 'bg-card text-primary hover:scale-105 hover:glow-white border border-primary/20'
+              onClick={() => {
+                setSelectedDuration(planKey);
+                setSelectedPackage("");
+                setShowForm(false);
+              }}
+              className={`px-6 py-3 rounded-xl font-medium transition-all duration-500 ${
+                selectedDuration === planKey
+                  ? 'bg-accent text-background scale-110 glow-cyan shadow-lg'
+                  : 'bg-transparent text-primary hover:scale-105 hover:glow-cyan-subtle border border-primary/20 hover:border-accent'
               }`}
             >
               {planKey}
@@ -66,16 +117,20 @@ const PricingSection = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 max-w-7xl mx-auto">
-          {plans[selectedPlan as keyof typeof plans].map((plan, index) => {
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 max-w-7xl mx-auto mb-12">
+          {plans[selectedDuration as keyof typeof plans].map((plan, index) => {
+            const isSelected = selectedPackage === plan.name;
             const isHighlighted = index === 2;
             return (
               <Card
                 key={index}
-                className={`transition-all duration-300 bg-gradient-card animate-fade-in ${
-                  isHighlighted
-                    ? 'border-2 border-primary shadow-strong scale-105 glow-white-strong'
-                    : 'border border-primary/20 hover:border-primary hover:shadow-strong hover:glow-white'
+                onClick={() => handlePackageSelect(plan.name)}
+                className={`cursor-pointer transition-all duration-500 bg-gradient-card animate-fade-in ${
+                  isSelected
+                    ? 'border-2 border-accent shadow-strong scale-105 glow-cyan-subtle'
+                    : isHighlighted
+                    ? 'border-2 border-primary/50 shadow-medium hover:scale-105'
+                    : 'border border-primary/20 hover:border-accent hover:shadow-strong hover:scale-105'
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -83,12 +138,12 @@ const PricingSection = () => {
                   <h3 className="text-xl font-semibold mb-2 text-primary">{plan.name}</h3>
                   <p className="text-4xl font-bold mb-4 text-foreground">
                     {plan.price}
-                    <span className="text-muted-foreground text-lg font-medium">/{selectedPlan}</span>
+                    <span className="text-muted-foreground text-lg font-medium">/{selectedDuration}</span>
                   </p>
                   <ul className="space-y-3 text-muted-foreground mb-6">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -98,6 +153,80 @@ const PricingSection = () => {
             );
           })}
         </div>
+
+        {/* Contact Form */}
+        {showForm && (
+          <Card className="max-w-2xl mx-auto border border-accent/30 bg-gradient-card animate-fade-in glow-cyan-subtle">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-center text-primary mb-6 glow-cyan">
+                {language === 'ar' ? 'أكمل بياناتك' : 'Complete Your Information'}
+              </h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-foreground text-lg">
+                    {language === 'ar' ? 'الاسم' : 'Name'}
+                  </Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder={language === 'ar' ? 'أدخل اسمك' : 'Enter your name'}
+                    className="border border-accent/20 focus:border-accent transition-all duration-300 text-lg py-6 bg-card"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-foreground text-lg">
+                    {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder={language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
+                    className="border border-accent/20 focus:border-accent transition-all duration-300 text-lg py-6 bg-card"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="whatsapp" className="text-foreground text-lg">
+                    {language === 'ar' ? 'واتساب' : 'WhatsApp'}
+                  </Label>
+                  <Input
+                    id="whatsapp"
+                    type="tel"
+                    value={formData.whatsapp}
+                    onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                    placeholder={language === 'ar' ? 'أدخل رقم واتساب' : 'Enter your WhatsApp number'}
+                    className="border border-accent/20 focus:border-accent transition-all duration-300 text-lg py-6 bg-card"
+                    required
+                  />
+                </div>
+
+                <div className="bg-card/50 p-4 rounded-lg border border-accent/20">
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {language === 'ar' ? 'الباقة المختارة:' : 'Selected Package:'}
+                  </p>
+                  <p className="text-lg font-bold text-accent">
+                    {selectedPackage} - {selectedDuration}
+                  </p>
+                </div>
+
+                <Button 
+                  type="submit"
+                  className="w-full text-xl py-6 rounded-xl bg-accent text-background hover:shadow-strong transition-all duration-300 hover:scale-105 group hover:glow-cyan"
+                >
+                  <span className="relative z-10">{language === 'ar' ? 'إرسال' : 'Send'}</span>
+                  <Send className="mr-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </section>
   );

@@ -59,7 +59,7 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
     <section id="contact-form" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-cyan-soft mb-4">
             {t('contact.title')}
           </h2>
           <p className="text-xl text-muted-foreground">

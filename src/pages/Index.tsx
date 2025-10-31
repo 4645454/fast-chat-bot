@@ -12,24 +12,26 @@ const Index = () => {
     // Add smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
     
-    // Intersection Observer for fade-in animations
+    // Intersection Observer for fade-in animations (repeating on every view)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
+          } else {
+            entry.target.classList.remove('animate-fade-in');
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    // Observe all sections
-    const sections = document.querySelectorAll('section');
-    sections.forEach((section) => observer.observe(section));
+    // Observe all sections and cards
+    const elementsToAnimate = document.querySelectorAll('section, .animate-fade-in');
+    elementsToAnimate.forEach((element) => observer.observe(element));
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      elementsToAnimate.forEach((element) => observer.unobserve(element));
     };
   }, []);
 
