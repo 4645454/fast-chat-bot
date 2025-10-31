@@ -87,7 +87,7 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
     <section id="pricing" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-cyan-soft mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-white-soft mb-4">
             {language === 'ar' ? 'الباقات والأسعار' : 'Plans & Pricing'}
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -107,8 +107,8 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
               }}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-500 ${
                 selectedDuration === planKey
-                  ? 'bg-accent text-background scale-110 glow-cyan shadow-lg'
-                  : 'bg-transparent text-primary hover:scale-105 hover:glow-cyan-subtle border border-primary/20 hover:border-accent'
+                  ? 'bg-primary text-background scale-110 glow-white shadow-lg'
+                  : 'bg-transparent text-primary hover:scale-105 hover:glow-white-subtle border border-primary/20 hover:border-primary'
               }`}
             >
               {planKey}
@@ -127,10 +127,10 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
                 onClick={() => handlePackageSelect(plan.name)}
                 className={`cursor-pointer transition-all duration-500 bg-gradient-card animate-fade-in ${
                   isSelected
-                    ? 'border-2 border-accent shadow-strong scale-105 glow-cyan-subtle'
+                    ? 'border-2 border-primary shadow-strong scale-105 glow-white-subtle'
                     : isHighlighted
                     ? 'border-2 border-primary/50 shadow-medium hover:scale-105'
-                    : 'border border-primary/20 hover:border-accent hover:shadow-strong hover:scale-105'
+                    : 'border border-primary/20 hover:border-primary hover:shadow-strong hover:scale-105'
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -143,7 +143,7 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
                   <ul className="space-y-3 text-muted-foreground mb-6">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                        <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -156,9 +156,9 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
 
         {/* Contact Form */}
         {showForm && (
-          <Card className="max-w-2xl mx-auto border border-accent/30 bg-gradient-card animate-fade-in glow-cyan-subtle">
+          <Card className="max-w-2xl mx-auto border border-primary/30 bg-gradient-card animate-fade-in glow-white-subtle">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-center text-primary mb-6 glow-cyan">
+              <h3 className="text-2xl font-bold text-center text-primary mb-6 glow-white">
                 {language === 'ar' ? 'أكمل بياناتك' : 'Complete Your Information'}
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -172,7 +172,7 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={language === 'ar' ? 'أدخل اسمك' : 'Enter your name'}
-                    className="border border-accent/20 focus:border-accent transition-all duration-300 text-lg py-6 bg-card"
+                    className="border border-primary/20 focus:border-primary transition-all duration-300 text-lg py-6 bg-card"
                     required
                   />
                 </div>
@@ -187,7 +187,7 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder={language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
-                    className="border border-accent/20 focus:border-accent transition-all duration-300 text-lg py-6 bg-card"
+                    className="border border-primary/20 focus:border-primary transition-all duration-300 text-lg py-6 bg-card"
                     required
                   />
                 </div>
@@ -202,23 +202,23 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
                     value={formData.whatsapp}
                     onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                     placeholder={language === 'ar' ? 'أدخل رقم واتساب' : 'Enter your WhatsApp number'}
-                    className="border border-accent/20 focus:border-accent transition-all duration-300 text-lg py-6 bg-card"
+                    className="border border-primary/20 focus:border-primary transition-all duration-300 text-lg py-6 bg-card"
                     required
                   />
                 </div>
 
-                <div className="bg-card/50 p-4 rounded-lg border border-accent/20">
+                <div className="bg-card/50 p-4 rounded-lg border border-primary/20">
                   <p className="text-sm text-muted-foreground mb-2">
                     {language === 'ar' ? 'الباقة المختارة:' : 'Selected Package:'}
                   </p>
-                  <p className="text-lg font-bold text-accent">
+                  <p className="text-lg font-bold text-primary">
                     {selectedPackage} - {selectedDuration}
                   </p>
                 </div>
 
                 <Button 
                   type="submit"
-                  className="w-full text-xl py-6 rounded-xl bg-accent text-background hover:shadow-strong transition-all duration-300 hover:scale-105 group hover:glow-cyan"
+                  className="w-full text-xl py-6 rounded-xl bg-primary text-background hover:shadow-strong transition-all duration-300 hover:scale-105 group hover:glow-white"
                 >
                   <span className="relative z-10">{language === 'ar' ? 'إرسال' : 'Send'}</span>
                   <Send className="mr-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />

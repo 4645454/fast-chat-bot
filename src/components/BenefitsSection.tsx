@@ -68,7 +68,7 @@ const BenefitsSection = () => {
     <section id="benefits" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-cyan-soft mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-white-soft mb-4">
             {language === 'ar' ? 'لماذا تختار Fast Chat؟' : 'Why Choose Fast Chat?'}
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -82,14 +82,14 @@ const BenefitsSection = () => {
             return (
               <Card
                 key={index}
-                className="border border-primary/20 bg-gradient-card hover:border-accent hover:scale-105 transition-all duration-500 group pulse-glow animate-fade-in"
+                className="border border-primary/20 bg-gradient-card hover:border-primary hover:scale-105 transition-all duration-500 group pulse-glow animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardContent className="p-6 text-center space-y-4">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-card/50 border border-accent/30 text-accent mb-2 group-hover:scale-110 group-hover:glow-cyan-subtle transition-all duration-500">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-card/50 border border-primary/30 text-primary mb-2 group-hover:scale-110 group-hover:glow-white-subtle transition-all duration-500">
                     <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-primary transition-colors duration-300">
                     {language === 'ar' ? benefit.titleAr : benefit.titleEn}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
