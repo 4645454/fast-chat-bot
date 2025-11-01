@@ -10,6 +10,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactForm = () => {
   const { t, language } = useLanguage();
+  const [selectedPlan, setSelectedPlan] = useState<string>("");
+  const [selectedPackage, setSelectedPackage] = useState<{ name: string; price: string } | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     brandName: "",
@@ -17,7 +19,36 @@ const ContactForm = () => {
     reason: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const planDurations = ["1 Day", "5 Days", "10 Days", "30 Days"];
+  
+  const packages: Record<string, Array<{ name: string; price: string }>> = {
+    "1 Day": [
+      { name: "Basic", price: "100 EGP" },
+      { name: "Professional", price: "150 EGP" },
+      { name: "Business", price: "200 EGP" },
+      { name: "Enterprise", price: "250 EGP" }
+    ],
+    "5 Days": [
+      { name: "Basic", price: "350 EGP" },
+      { name: "Professional", price: "450 EGP" },
+      { name: "Business", price: "550 EGP" },
+      { name: "Enterprise", price: "700 EGP" }
+    ],
+    "10 Days": [
+      { name: "Basic", price: "1000 EGP" },
+      { name: "Professional", price: "1200 EGP" },
+      { name: "Business", price: "1400 EGP" },
+      { name: "Enterprise", price: "1650 EGP" }
+    ],
+    "30 Days": [
+      { name: "Basic", price: "2500 EGP" },
+      { name: "Professional", price: "3500 EGP" },
+      { name: "Business", price: "4500 EGP" },
+      { name: "Enterprise", price: "6000 EGP" }
+    ]
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate form
@@ -26,33 +57,46 @@ const ContactForm = () => {
       return;
     }
 
-    // Create WhatsApp message
-    const message = `${language === 'ar' ? 'مرحباً' : 'Hello'}! 👋
+    if (!selectedPackage) {
+      toast.error(language === 'ar' ? 'يرجى اختيار باقة' : 'Please select a package');
+      return;
+    }
 
-${t('contact.name')}: ${formData.name}
-${t('contact.brandName')}: ${formData.brandName}
-${t('contact.whatsapp')}: ${formData.whatsapp}
-${t('contact.reason')}: ${formData.reason || (language === 'ar' ? 'لم يتم ذكره' : 'Not mentioned')}
+    // Prepare data for Google Apps Script
+    const dataToSend = {
+      name: formData.name,
+      brand: formData.brandName,
+      whatsapp: formData.whatsapp,
+      plan: `${selectedPackage.name} - ${selectedPlan}`,
+      price: selectedPackage.price,
+      why: formData.reason || (language === 'ar' ? 'لم يتم ذكره' : 'Not mentioned')
+    };
 
-${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلقائي على العملاء.' : 'I am interested in Fast Chat service for automatic customer replies.'}`;
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxeo6U7rI9kPFb6wfTVqS2XiZ_yUfdRj0yhnS6X_zhnZMx3-0uJdIR4GVI9GeZx8e1u8w/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend)
+      });
 
-    // Encode message for WhatsApp URL
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = "201000000000"; // Replace with your actual WhatsApp number
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-    // Open WhatsApp
-    window.open(whatsappUrl, '_blank');
-    
-    toast.success(t('message.openingWhatsapp'));
-    
-    // Reset form
-    setFormData({
-      name: "",
-      brandName: "",
-      whatsapp: "",
-      reason: ""
-    });
+      toast.success(language === 'ar' ? 'تم إرسال البيانات بنجاح!' : 'Data sent successfully!');
+      
+      // Reset form
+      setFormData({
+        name: "",
+        brandName: "",
+        whatsapp: "",
+        reason: ""
+      });
+      setSelectedPlan("");
+      setSelectedPackage(null);
+    } catch (error) {
+      toast.error(language === 'ar' ? 'حدث خطأ أثناء الإرسال' : 'Error sending data');
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -117,15 +161,66 @@ ${language === 'ar' ? 'أنا مهتم بخدمة Fast Chat للرد التلق�
                   onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
                   placeholder={t('contact.reasonPlaceholder')}
                   className="border border-primary/20 focus:border-primary transition-all duration-300 min-h-32 text-lg bg-card"
-                  required
                 />
               </div>
+
+              {/* Plan Selection */}
+              <div className="space-y-4">
+                <Label className="text-foreground text-lg">
+                  {language === 'ar' ? 'اختر الخطة' : 'Select Plan'}
+                </Label>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {planDurations.map((plan) => (
+                    <button
+                      key={plan}
+                      type="button"
+                      onClick={() => {
+                        setSelectedPlan(plan);
+                        setSelectedPackage(null);
+                      }}
+                      className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                        selectedPlan === plan
+                          ? 'bg-primary text-background scale-105 glow-white shadow-lg'
+                          : 'bg-card border border-primary/20 text-primary hover:scale-105 hover:border-primary'
+                      }`}
+                    >
+                      {plan}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Package Selection */}
+              {selectedPlan && (
+                <div className="space-y-4 animate-fadeRise">
+                  <Label className="text-foreground text-lg">
+                    {language === 'ar' ? 'اختر الباقة' : 'Select Package'}
+                  </Label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {packages[selectedPlan].map((pkg) => (
+                      <button
+                        key={pkg.name}
+                        type="button"
+                        onClick={() => setSelectedPackage(pkg)}
+                        className={`p-4 rounded-xl text-left transition-all duration-300 ${
+                          selectedPackage?.name === pkg.name
+                            ? 'bg-primary/20 border-2 border-primary scale-105 glow-white-subtle'
+                            : 'bg-card border border-primary/20 hover:border-primary hover:scale-105'
+                        }`}
+                      >
+                        <div className="font-bold text-lg text-primary">{pkg.name}</div>
+                        <div className="text-2xl font-bold text-foreground mt-2">{pkg.price}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <Button 
                 type="submit"
                 className="w-full text-xl py-6 rounded-xl bg-primary text-background hover:shadow-strong transition-all duration-300 hover:scale-105 group hover:glow-white-strong"
               >
-                <span className="relative z-10">{t('contact.submit')}</span>
+                <span className="relative z-10">{language === 'ar' ? "لنبدأ التواصل" : "Let's Connect"}</span>
                 <Send className="mr-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>

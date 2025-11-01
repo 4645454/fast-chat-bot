@@ -82,14 +82,13 @@ const BenefitsSection = () => {
             return (
               <Card
                 key={index}
-                className="border border-primary/20 bg-gradient-card hover:border-primary hover:scale-105 transition-all duration-500 group pulse-glow animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="border border-primary/20 bg-gradient-card glow-white-subtle"
               >
                 <CardContent className="p-6 text-center space-y-4">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-card/50 border border-primary/30 text-primary mb-2 group-hover:scale-110 group-hover:glow-white-subtle transition-all duration-500">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-card/50 border border-primary/30 text-primary mb-2 glow-white-subtle">
                     <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-primary">
                     {language === 'ar' ? benefit.titleAr : benefit.titleEn}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
