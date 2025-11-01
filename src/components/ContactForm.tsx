@@ -102,15 +102,6 @@ const ContactForm = () => {
   return (
     <section id="contact-form" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4 max-w-2xl">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-white-soft mb-4">
-            {t('contact.title')}
-          </h2>
-          <p className="text-xl text-muted-foreground">
-            {t('contact.subtitle')}
-          </p>
-        </div>
-
         <Card className="border border-primary/20 shadow-strong bg-gradient-card hover:glow-white transition-all duration-300 animate-fade-in">
           <CardContent className="p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
