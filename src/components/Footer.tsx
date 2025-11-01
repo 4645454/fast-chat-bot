@@ -16,11 +16,8 @@ const Footer = () => {
           </div>
           
           <div className="text-center md:text-right">
-            <p className="text-muted-foreground">
-              {t('footer.tagline')}
-            </p>
-            <p className="text-sm text-muted-foreground mt-1">
-              © 2024 Fast Chat. {t('footer.rights')}
+            <p className="text-sm text-muted-foreground">
+              © 2025 Fast Chat. {t('footer.rights')}
             </p>
           </div>
         </div>
