@@ -59,6 +59,24 @@ const translations = {
     'contact.whatsappPlaceholder': '01012345678',
     'contact.reasonPlaceholder': 'عايز أحسن خدمة العملاء وأزود المبيعات...',
     
+    // Pricing
+    'pricing.title': 'الباقات والأسعار',
+    'pricing.subtitle': 'اختر الباقة المناسبة لأهدافك',
+    'pricing.duration.1day': 'يوم واحد',
+    'pricing.duration.5days': '5 أيام',
+    'pricing.duration.10days': '10 أيام',
+    'pricing.duration.30days': '30 يوم',
+    'pricing.plan.basic': 'الباقة الأساسية',
+    'pricing.plan.professional': 'الباقة الاحترافية',
+    'pricing.plan.business': 'باقة الأعمال',
+    'pricing.plan.enterprise': 'الباقة المتقدمة',
+    'pricing.feature.service': 'خدمة 24/7',
+    'pricing.feature.response': 'رد في أقل من 30 ثانية',
+    'pricing.feature.messages': 'رسالة',
+    'pricing.feature.messagesPerPlatform': 'رسالة لكل منصة',
+    'pricing.feature.supports1Platform': 'تدعم منصة واحدة (واتساب، إنستجرام، فيسبوك)',
+    'pricing.feature.supports3Platforms': 'تدعم 3 منصات (واتساب، إنستجرام، فيسبوك)',
+    
     // Footer
     'footer.tagline': 'خدمة مقدمة بواسطة AI in N8N',
     'footer.rights': 'جميع الحقوق محفوظة',
@@ -114,6 +132,24 @@ const translations = {
     'contact.brandPlaceholder': 'Brand Shop',
     'contact.whatsappPlaceholder': '01012345678',
     'contact.reasonPlaceholder': 'I want to improve customer service and increase sales...',
+    
+    // Pricing
+    'pricing.title': 'Plans & Pricing',
+    'pricing.subtitle': 'Choose the plan that fits your goals',
+    'pricing.duration.1day': '1 Day',
+    'pricing.duration.5days': '5 Days',
+    'pricing.duration.10days': '10 Days',
+    'pricing.duration.30days': '30 Days',
+    'pricing.plan.basic': 'Basic',
+    'pricing.plan.professional': 'Professional',
+    'pricing.plan.business': 'Business',
+    'pricing.plan.enterprise': 'Enterprise',
+    'pricing.feature.service': '24/7 Service',
+    'pricing.feature.response': 'Under 30 sec response',
+    'pricing.feature.messages': 'Messages',
+    'pricing.feature.messagesPerPlatform': 'Messages per platform',
+    'pricing.feature.supports1Platform': 'Supports 1 Platform (WhatsApp, Instagram, Facebook)',
+    'pricing.feature.supports3Platforms': 'Supports 3 platforms (WhatsApp, Instagram, Facebook)',
     
     // Footer
     'footer.tagline': 'Service provided by AI in N8N',
