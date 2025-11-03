@@ -57,7 +57,7 @@ const PricingSection = () => {
     <section id="pricing" className="py-20 bg-gradient-section" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary glow-white-soft mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             {t('pricing.title')}
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -73,8 +73,8 @@ const PricingSection = () => {
               onClick={() => setSelectedDuration(durationKey)}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-500 ${
                 selectedDuration === durationKey
-                  ? 'bg-primary text-background scale-110 glow-white shadow-lg'
-                  : 'bg-transparent text-primary hover:scale-105 hover:glow-white-subtle border border-primary/20 hover:border-primary'
+                  ? 'bg-primary text-white scale-110 shadow-lg'
+                  : 'bg-transparent text-foreground hover:scale-105 border border-primary/20 hover:border-primary hover:bg-primary/5'
               }`}
             >
               {t(`pricing.duration.${durationKey}`)}

@@ -42,8 +42,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2 space-x-reverse">
-            <Sparkles className="h-8 w-8 text-primary animate-pulse glow-white" />
-            <span className="text-2xl font-bold text-primary glow-white">
+            <Sparkles className="h-8 w-8 text-primary animate-pulse" />
+            <span className="text-2xl font-bold text-foreground">
               Fast Chat
             </span>
           </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
                 <button
                   key={index}
                   onClick={() => scrollToSection(item.id)}
-                  className="group relative px-6 py-3 text-primary font-medium transition-all duration-300 hover:scale-110 hover:glow-white"
+                  className="group relative px-6 py-3 text-foreground font-medium transition-all duration-300 hover:scale-110 hover:text-primary"
                 >
                   <span className="relative z-10">{item.label}</span>
                 </button>
@@ -84,7 +84,7 @@ const Navbar = () => {
                 <button
                   key={index}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-right px-4 py-3 text-primary font-medium hover:glow-white rounded-xl transition-all duration-300"
+                  className="text-right px-4 py-3 text-foreground font-medium hover:text-primary rounded-xl transition-all duration-300"
                 >
                   {item.label}
                 </button>

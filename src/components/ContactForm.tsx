@@ -171,8 +171,8 @@ const ContactForm = () => {
                       }}
                       className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
                         selectedPlan === plan
-                          ? 'bg-primary text-background scale-105 glow-white shadow-lg'
-                          : 'bg-card border border-primary/20 text-primary hover:scale-105 hover:border-primary'
+                          ? 'bg-primary text-white scale-105 shadow-lg'
+                          : 'bg-card border border-primary/20 text-foreground hover:scale-105 hover:border-primary'
                       }`}
                     >
                       {plan}
@@ -209,7 +209,7 @@ const ContactForm = () => {
 
               <Button 
                 type="submit"
-                className="w-full text-xl py-6 rounded-xl bg-primary text-background hover:shadow-strong transition-all duration-300 hover:scale-105 group hover:glow-white-strong"
+                className="w-full text-xl py-6 rounded-xl bg-primary text-white hover:shadow-strong transition-all duration-300 hover:scale-105"
               >
                 <span className="relative z-10">{language === 'ar' ? "لنبدأ التواصل" : "Let's Connect"}</span>
                 <Send className="mr-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />

@@ -9,8 +9,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-primary glow-white" />
-            <span className="text-lg font-bold text-primary glow-white">
+            <Sparkles className="h-6 w-6 text-primary" />
+            <span className="text-lg font-bold text-foreground">
               Fast Chat
             </span>
           </div>
