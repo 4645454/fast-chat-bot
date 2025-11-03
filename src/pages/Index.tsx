@@ -12,14 +12,14 @@ const Index = () => {
     // Add smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
     
-    // Intersection Observer for fade-in animations (repeating on every view)
+    // Intersection Observer for fade-in animations (triggers only once per element)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
-          } else {
-            entry.target.classList.remove('animate-fade-in');
+            // Stop observing after animation triggers once
+            observer.unobserve(entry.target);
           }
         });
       },
