@@ -23,16 +23,16 @@ const PricingSection = () => {
       { key: "enterprise", price: "700 EGP", messages: null, messagesPerPlatform: 1500, platforms: 3 }
     ],
     "10days": [
-      { key: "basic", price: "1000 EGP", messages: 2000, messagesPerPlatform: null, platforms: 1 },
-      { key: "professional", price: "1200 EGP", messages: 3000, messagesPerPlatform: null, platforms: 1 },
-      { key: "business", price: "1400 EGP", messages: null, messagesPerPlatform: 1000, platforms: 3 },
-      { key: "enterprise", price: "1650 EGP", messages: null, messagesPerPlatform: 1800, platforms: 3 }
+      { key: "basic", price: "1000 EGP", messages: 4000, messagesPerPlatform: null, platforms: 1 },
+      { key: "professional", price: "1200 EGP", messages: 8500, messagesPerPlatform: null, platforms: 1 },
+      { key: "business", price: "1400 EGP", messages: null, messagesPerPlatform: 4000, platforms: 3 },
+      { key: "enterprise", price: "1650 EGP", messages: null, messagesPerPlatform: 8000, platforms: 3 }
     ],
     "30days": [
-      { key: "basic", price: "2500 EGP", messages: 5000, messagesPerPlatform: null, platforms: 1 },
-      { key: "professional", price: "3500 EGP", messages: 8000, messagesPerPlatform: null, platforms: 1 },
-      { key: "business", price: "4500 EGP", messages: null, messagesPerPlatform: 8000, platforms: 3 },
-      { key: "enterprise", price: "6000 EGP", messages: null, messagesPerPlatform: 15000, platforms: 3 }
+      { key: "basic", price: "2500 EGP", messages: 10000, messagesPerPlatform: null, platforms: 1 },
+      { key: "professional", price: "3500 EGP", messages: 20000, messagesPerPlatform: null, platforms: 1 },
+      { key: "business", price: "4500 EGP", messages: null, messagesPerPlatform: 10000, platforms: 3 },
+      { key: "enterprise", price: "6000 EGP", messages: null, messagesPerPlatform: 20000, platforms: 3 }
     ],
   };
 
