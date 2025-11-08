@@ -8,67 +8,67 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 0%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 200 100% 50%;
+    --primary: 25 100% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 80% 90%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 25 30% 20%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 200 30% 95%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 197 71% 73%;
+    --accent: 30 100% 60%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 40% 85%;
-    --input: 200 40% 92%;
-    --ring: 200 100% 50%;
+    --border: 25 20% 25%;
+    --input: 0 0% 15%;
+    --ring: 25 100% 55%;
 
     --radius: 1rem;
     
-    /* Light theme with sky blue accents */
-    --gradient-hero: linear-gradient(135deg, hsl(200, 100%, 98%) 0%, hsl(197, 90%, 95%) 50%, hsl(200, 100%, 98%) 100%);
-    --gradient-section: radial-gradient(ellipse at top, hsl(197, 100%, 95%) 0%, hsl(0, 0%, 100%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(200, 100%, 98%) 100%);
-    --gradient-accent: linear-gradient(90deg, hsl(200, 100%, 50%) 0%, hsl(197, 71%, 73%) 100%);
-    --gradient-bg: radial-gradient(ellipse at top left, hsl(197, 100%, 97%), hsl(0, 0%, 100%)), 
-                    radial-gradient(ellipse at bottom right, hsl(200, 100%, 96%), hsl(0, 0%, 100%));
+    /* Dark theme with orange accents */
+    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(25, 50%, 10%) 50%, hsl(0, 0%, 5%) 100%);
+    --gradient-section: radial-gradient(ellipse at top, hsl(25, 40%, 8%) 0%, hsl(0, 0%, 5%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(25, 30%, 12%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(25, 100%, 55%) 0%, hsl(30, 100%, 60%) 100%);
+    --gradient-bg: radial-gradient(ellipse at top left, hsl(25, 50%, 8%), hsl(0, 0%, 5%)), 
+                    radial-gradient(ellipse at bottom right, hsl(30, 40%, 8%), hsl(0, 0%, 5%));
     
-    /* Sky blue soft shadows */
-    --shadow-soft: 0 4px 20px hsla(200, 100%, 50%, 0.08);
-    --shadow-medium: 0 8px 30px hsla(200, 100%, 50%, 0.12);
-    --shadow-strong: 0 12px 40px hsla(200, 100%, 50%, 0.15);
-    --shadow-glow: 0 0 40px hsla(197, 71%, 73%, 0.25);
-    --shadow-glow-strong: 0 0 60px hsla(197, 71%, 73%, 0.35);
+    /* Orange soft shadows and glows */
+    --shadow-soft: 0 4px 20px hsla(25, 100%, 55%, 0.15);
+    --shadow-medium: 0 8px 30px hsla(25, 100%, 55%, 0.2);
+    --shadow-strong: 0 12px 40px hsla(25, 100%, 55%, 0.25);
+    --shadow-glow: 0 0 40px hsla(25, 100%, 55%, 0.3);
+    --shadow-glow-strong: 0 0 60px hsla(25, 100%, 55%, 0.4);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 0 0% 8%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 0 0% 90%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 25 100% 55%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 100%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 0 0% 15%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 0 0% 90%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 25 20% 20%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 25 100% 55%;
   }
 
   .dark {
@@ -121,8 +121,8 @@ All colors MUST be HSL.
     direction: rtl;
     background: hsl(var(--background));
     background-image: 
-      radial-gradient(ellipse 80% 50% at 50% -20%, hsla(200, 100%, 50%, 0.08), transparent),
-      radial-gradient(ellipse 60% 50% at 50% 120%, hsla(197, 71%, 73%, 0.06), transparent);
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsla(25, 100%, 55%, 0.1), transparent),
+      radial-gradient(ellipse 60% 50% at 50% 120%, hsla(30, 100%, 60%, 0.08), transparent);
     background-attachment: fixed;
   }
   
@@ -228,31 +228,31 @@ All colors MUST be HSL.
   }
   
   .glow-white {
-    text-shadow: 0 0 20px hsla(200, 100%, 50%, 0.3);
+    text-shadow: 0 0 20px hsla(25, 100%, 55%, 0.4);
   }
   
   .glow-white-strong {
-    text-shadow: 0 0 30px hsla(200, 100%, 50%, 0.5), 0 0 60px hsla(197, 71%, 73%, 0.3);
+    text-shadow: 0 0 30px hsla(25, 100%, 55%, 0.6), 0 0 60px hsla(30, 100%, 60%, 0.4);
   }
   
   .glow-white-soft {
-    text-shadow: 0 0 40px hsla(200, 100%, 50%, 0.2), 0 0 80px hsla(197, 71%, 73%, 0.15);
+    text-shadow: 0 0 40px hsla(25, 100%, 55%, 0.3), 0 0 80px hsla(30, 100%, 60%, 0.2);
   }
   
   .glow-white-subtle {
-    box-shadow: 0 0 30px hsla(200, 100%, 50%, 0.15);
+    box-shadow: 0 0 30px hsla(25, 100%, 55%, 0.2);
   }
   
   .pulse-glow {
-    animation: pulseGlowSkyBlue 3s ease-in-out infinite;
+    animation: pulseGlowOrange 3s ease-in-out infinite;
   }
   
-  @keyframes pulseGlowSkyBlue {
+  @keyframes pulseGlowOrange {
     0%, 100% {
-      box-shadow: 0 0 20px hsla(200, 100%, 50%, 0.2);
+      box-shadow: 0 0 20px hsla(25, 100%, 55%, 0.3);
     }
     50% {
-      box-shadow: 0 0 40px hsla(197, 71%, 73%, 0.4);
+      box-shadow: 0 0 40px hsla(30, 100%, 60%, 0.5);
     }
   }
 }
