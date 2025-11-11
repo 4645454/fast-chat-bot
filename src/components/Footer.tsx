@@ -11,13 +11,13 @@ const Footer = () => {
           <div className="flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-primary" />
             <span className="text-lg font-bold text-foreground">
-              Fast Chat
+              Auto Boom
             </span>
           </div>
           
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
-              © 2025 Fast Chat. {t('footer.rights')}
+              © 2025 Auto Boom. {t('footer.rights')}
             </p>
           </div>
         </div>

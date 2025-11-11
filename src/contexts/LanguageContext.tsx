@@ -21,23 +21,23 @@ const translations = {
     // Hero
     'hero.title': 'خلي عملاءك يرد عليهم الشات',
     'hero.titleHighlight': 'أسرع من البشر!',
-    'hero.subtitle': 'Fast Chat هتخلي البراند بتاعك يرد في أقل من 30 ثانية على واتساب وإنستا وفيسبوك',
+    'hero.subtitle': 'Auto Boom هتخلي البراند بتاعك يرد في أقل من 30 ثانية على واتساب وإنستا وفيسبوك',
     'hero.cta': 'ابدأ دلوقتي',
-    'hero.imageAlt': 'Fast Chat - رد تلقائي ذكي',
+    'hero.imageAlt': 'Auto Boom - رد تلقائي ذكي',
     
     // Benefits
-    'benefits.title': 'ليه تختار Fast Chat؟',
+    'benefits.title': 'ليه تختار Auto Boom؟',
     'benefits.subtitle': 'الحل الذكي اللي هيغير طريقة تعاملك مع عملائك',
     'benefits.speed.title': 'سرعة الرد = رضا العميل',
     'benefits.speed.desc': 'رد تلقائي في أقل من 30 ثانية على كل الاستفسارات، عميلك مش هيستنى ولا ثانية زيادة',
     'benefits.saving.title': 'توفير 3 موظفين خدمة عملاء',
-    'benefits.saving.desc': 'وفر آلاف الجنيهات شهرياً، Fast Chat بيشتغل 24/7 من غير إجازات ولا تأخير',
+    'benefits.saving.desc': 'وفر آلاف الجنيهات شهرياً، Auto Boom بيشتغل 24/7 من غير إجازات ولا تأخير',
     'benefits.sales.title': 'زيادة المبيعات 24/7',
     'benefits.sales.desc': 'مفيش عميل هيفوتك تاني، البوت بيرد حتى لو إنت نايم والمبيعات بتزيد على طول',
     
     // Proof
     'proof.title': 'نتائج حقيقية من عملائنا',
-    'proof.subtitle': 'أكتر من 100 براند اعتمد على Fast Chat وزود مبيعاته في أول أسبوع',
+    'proof.subtitle': 'أكتر من 100 براند اعتمد على Auto Boom وزود مبيعاته في أول أسبوع',
     'proof.brands': 'براند واثق فينا',
     'proof.growth': 'زيادة في المبيعات',
     'proof.support': 'خدمة مستمرة',
@@ -95,23 +95,23 @@ const translations = {
     // Hero
     'hero.title': 'Let your customers get replies from chat',
     'hero.titleHighlight': 'Faster than humans!',
-    'hero.subtitle': 'Fast Chat will make your brand respond in less than 30 seconds on WhatsApp, Instagram and Facebook',
+    'hero.subtitle': 'Auto Boom will make your brand respond in less than 30 seconds on WhatsApp, Instagram and Facebook',
     'hero.cta': 'Start Now',
-    'hero.imageAlt': 'Fast Chat - Smart Auto Reply',
+    'hero.imageAlt': 'Auto Boom - Smart Auto Reply',
     
     // Benefits
-    'benefits.title': 'Why Choose Fast Chat?',
+    'benefits.title': 'Why Choose Auto Boom?',
     'benefits.subtitle': 'The smart solution that will change how you deal with your customers',
     'benefits.speed.title': 'Response Speed = Customer Satisfaction',
     'benefits.speed.desc': 'Automatic reply in less than 30 seconds to all inquiries, your customer won\'t wait a second more',
     'benefits.saving.title': 'Save 3 Customer Service Employees',
-    'benefits.saving.desc': 'Save thousands monthly, Fast Chat works 24/7 without vacations or delays',
+    'benefits.saving.desc': 'Save thousands monthly, Auto Boom works 24/7 without vacations or delays',
     'benefits.sales.title': 'Increase Sales 24/7',
     'benefits.sales.desc': 'No customer will slip away, the bot responds even while you sleep and sales keep growing',
     
     // Proof
     'proof.title': 'Real Results From Our Clients',
-    'proof.subtitle': 'More than 100 brands trusted Fast Chat and increased their sales in the first week',
+    'proof.subtitle': 'More than 100 brands trusted Auto Boom and increased their sales in the first week',
     'proof.brands': 'Trusted Brands',
     'proof.growth': 'Sales Increase',
     'proof.support': 'Continuous Service',

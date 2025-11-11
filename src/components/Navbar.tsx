@@ -23,8 +23,8 @@ const Navbar = () => {
   };
 
   const menuItems = [
+    { label: 'Overview', id: 'hero' },
     { label: language === 'ar' ? 'الخدمات' : 'Services', id: 'benefits' },
-    { label: language === 'ar' ? 'لماذا نحن' : 'Why Us', id: 'benefits' },
     { label: language === 'ar' ? 'المنصات' : 'Platforms', id: 'platforms' },
     { label: language === 'ar' ? 'اتصل الآن' : 'Call Now', id: 'contact-form' },
   ];
@@ -46,7 +46,7 @@ const Navbar = () => {
             <div className="flex items-center gap-2">
               <Sparkles className="h-7 w-7 text-primary animate-pulse" />
               <span className="text-3xl font-elegant font-bold text-white tracking-wide">
-                Fast Chat
+                Auto Boom
               </span>
             </div>
             
@@ -71,7 +71,7 @@ const Navbar = () => {
             <div className="flex items-center gap-2">
               <Sparkles className="h-7 w-7 text-primary animate-pulse" />
               <span className="text-2xl font-elegant font-bold text-white">
-                Fast Chat
+                Auto Boom
               </span>
             </div>
             

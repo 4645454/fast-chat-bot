@@ -69,10 +69,10 @@ const BenefitsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            {language === 'ar' ? 'لماذا تختار Fast Chat؟' : 'Why Choose Fast Chat?'}
+            {language === 'ar' ? 'لماذا تختار Auto Boom؟' : 'Why Choose Auto Boom?'}
           </h2>
           <p className="text-xl text-muted-foreground">
-            {language === 'ar' ? 'مميزات خدمة الشات بوت السريع' : 'Fast Chatbot Service Features'}
+            {language === 'ar' ? 'مميزات خدمة الشات بوت السريع' : 'Auto Boom Chatbot Service Features'}
           </p>
         </div>
 

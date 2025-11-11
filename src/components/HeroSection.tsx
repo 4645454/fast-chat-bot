@@ -15,7 +15,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-section -z-10"></div>
       
