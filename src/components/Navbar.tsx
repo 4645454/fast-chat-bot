@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { label: 'Overview', id: 'hero' },
+    { label: language === 'ar' ? 'نظرة عامة' : 'Overview', id: 'hero' },
     { label: language === 'ar' ? 'الخدمات' : 'Services', id: 'benefits' },
     { label: language === 'ar' ? 'المنصات' : 'Platforms', id: 'platforms' },
     { label: language === 'ar' ? 'اتصل الآن' : 'Call Now', id: 'contact-form' },
